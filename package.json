@@ -6,17 +6,19 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-router-dom": "^6.26.2",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
-    "@learn-co-curriculum/jest-learn-reporter": "^0.1.0",
     "@eslint/js": "^9.9.0",
+    "@learn-co-curriculum/jest-learn-reporter": "^0.1.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.1.0",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -34,6 +36,7 @@
     "server": "json-server --watch db.json --port 4000",
     "lint": "eslint .",
     "test": "vitest run --reporter=@learn-co-curriculum/jest-learn-reporter --reporter=default",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently \"npm run dev\" \"npm run server\""
   }
 }

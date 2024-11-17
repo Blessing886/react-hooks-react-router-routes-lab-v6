@@ -6,9 +6,9 @@ function Actors() {
 
   useEffect(() => {
     fetch("http://localhost:3001/actors")
-      .then(response => response.json())
-      .then(data => setActors(data))
-      .catch(error => console.error("Error fetching actors:", error));
+      .then((response) => response.json())
+      .then((data) => setActors(data))
+      .catch((error) => console.error("Error fetching actors:", error));
   }, []);
 
   return (
@@ -18,16 +18,20 @@ function Actors() {
         <h1>Actors Page</h1>
       </header>
       <main>
-        {actors.map(actor => (
-          <article key={actor.id}>
-            <h2>{actor.name}</h2>
-            <ul>
-              {actor.movies.map((movie, idx) => (
-                <li key={idx}>{movie}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+        {actors.length === 0 ? (
+          <p>Loading actors...</p>
+        ) : (
+          actors.map((actor) => (
+            <article key={actor.id}>
+              <h2>{actor.name}</h2>
+              <ul>
+                {actor.movies.map((movie, index) => (
+                  <li key={`${actor.id}-${index}`}>{movie}</li>
+                ))}
+              </ul>
+            </article>
+          ))
+        )}
       </main>
     </>
   );

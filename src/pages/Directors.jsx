@@ -18,16 +18,20 @@ function Directors() {
         <h1>Directors Page</h1>
       </header>
       <main>
-        {directors.map(director => (
-          <article key={director.id}>
-            <h2>{director.name}</h2>
-            <ul>
-              {director.movies.map((movie, idx) => (
-                <li key={idx}>{movie}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+        {directors.length === 0 ? (
+          <p>Loading directors...</p>  {/* Add loading state */}
+        ) : (
+          directors.map(director => (
+            <article key={director.id}>
+              <h2>{director.name}</h2>
+              <ul>
+                {director.movies.map((movie) => (
+                  <li key={movie}>{movie}</li>  {/* Use movie name as key */}
+                ))}
+              </ul>
+            </article>
+          ))
+        )}
       </main>
     </>
   );
